@@ -5,6 +5,9 @@
 #include <cmath>
 using namespace std;
 
+/* An elementary Calculator Program 
+*/
+
 int main()
 {
     float num1, num2;

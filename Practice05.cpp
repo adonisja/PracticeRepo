@@ -4,6 +4,8 @@
 #include <iomanip>
 using namespace std;
 
+/* A Number Guessing Game
+    a precursor to a Hangman Game */
 int main()
 {
     int hostNum = 0, guestNum = 0, guestCount = 5;
