@@ -105,26 +105,33 @@ int main()
     cout << "What is the name of this channel? ";
     getline(cin, name);
     cout << "Who owns " << name << "? ";
+    cin.ignore();
     getline(cin, ownername);
     YoutubeChannel ytube(name, ownername); // Object definition
     cout << "Name of the first video? ";
+    cin.ignore();
     getline(cin, title);
     ytube.PublishVideo(title);
     cout << "Name of the second video? ";
+    cin.ignore();
     getline(cin, title);
     ytube.PublishVideo(title);
     ytube.GetInfo(); // Call for the Class Method "GetInfo()"
     
     cout <<"This is channel 2: " << endl;
     cout << "What is the name of this channel? ";
+    cin.ignore();
     getline(cin, name); //allows for string input that includes spaces
     cout << "Who owns " << name << "? ";
+    cin.ignore();
     getline(cin, ownername);
     YoutubeChannel ytube2(name, ownername);
     cout << "Name of the first video? ";
+    cin.ignore();
     getline(cin, title);
     ytube2.PublishVideo(title);
     cout << "Name of the second video? ";
+    cin.ignore();
     getline(cin, title);
     ytube2.PublishVideo(title);
     ytube2.GetInfo();
