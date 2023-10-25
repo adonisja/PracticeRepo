@@ -9,7 +9,7 @@ using namespace std;
 
 // Intermediate level 
 
-template <typename T>
+template <typename T> //this must preceed the use of the T data type before the function definition
 void Swap(T &a, T &b)
 {
     T temp = a;

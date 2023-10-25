@@ -128,13 +128,66 @@ class RegularPolygon : public Shape2D
         {
             std::stringstream out;
 
-            std::fixed
+            out << std::fixed << std::setprecision(2);
+            out << "[[" << sides << "," << count << "]]";
+            return out.str();
         }
-
-        })
+        
+        friend std::ostream& operator<<(std::ostream& out, const RegularPolygon& obj)
+        {
+            out << obj.ToString();
+            return out;
+        }
 };
 
+class Square : public RegularPolygon
+{
+    private:
+        private:
+            private:
+                double sides;
 
+            public:
+                RegularPolygon(const RegularPolygon& other) : sides(other.sides), count(other.count) {}
 
+                double GetSides() const
+                {
+                    return sides;
+                }
+
+        void SetSides(double newSides)
+        {
+            if (newSides > 0)
+            {
+                RegularPolygon::SetSides(newSides);
+                sides = newSides;
+            }
+        }
+
+        double Perimeter()
+        {
+            return RegularPolygon::GetCount() * sides;
+        }
+
+        std::string ToString() const
+        {
+            std::stringstream out;
+
+            out << std::fixed << std::setprecision(2);
+            out << "[[" << sides << "," << RegularPolygon::GetCount() << "]]";
+            return out.str();
+        }
+
+        void SetCount(int newCount)
+        {
+            if (newCount > 0)
+            {
+                RegularPolygon::SetCount(newCount);
+                SetSides(sides); // update the value of sides based on the new count
+            }
+        }
+
+        ~Square() {}
+};
 
 #endif
