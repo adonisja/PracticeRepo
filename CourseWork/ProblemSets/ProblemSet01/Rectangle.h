@@ -14,29 +14,14 @@ class Rectangle
         double width;
 
     public:
-        Rectangle() : length(1), width(1){} //public default constructor with default value of 1 for length and width
-        
-        Rectangle(double length, double width) : Rectangle() //Overloaded Constructor
+        Rectangle () : length(1), width(1) {}   //Constructor
+        Rectangle(const Rectangle &obj)         //Copy Constructor
         {
-            if (length >= 0 && width >= 0)
-            {
-                if (length >= width)
-                {
-                    this->length = length;
-                    this->width = width;
-                }
-                else
-                {
-                    this->length = width;
-                    this->width = length;
-                }
-            }
-
+            length = obj.length;
+            width = obj.width;
         }
 
-        Rectangle(const Rectangle& other) : length(other.length), width(other.width) {} //Copy Constructor
-
-        Rectangle& operator=(const Rectangle& rhs) //Overloaded assignment operator
+        Rectangle& operator=(const Rectangle &rhs) //Assignment operator
         {
             if (this != &rhs)
             {
@@ -45,41 +30,40 @@ class Rectangle
             }
             return *this;
         }
+        ~Rectangle() {}     //Destructor
 
-        ~Rectangle() {} //Default Destructor
-
-        double GetLength() const
+        double GetLength()
         {
             return length;
         }
 
-        double GetWidth() const
+        double GetWidth()
         {
             return width;
         }
 
-        void SetLength(double newLength)
+        void SetLength(double value)
         {
-            if (newLength >= 0 && newLength >= width)
+            if (value > 0 && value >= width)
             {
-                length = newLength;
+                length = value;
             }
         }
 
-        void SetWidth(double newWidth)
+        void SetWidth(double value)
         {
-            if (newWidth >= 0 && newWidth <= length)
+            if (value > 0 && value <= length)
             {
-                width = newWidth;
+                width = value;
             }
         }
 
         double Perimeter() const
         {
-            return 2*(length+width); 
+            return 2*(length+width);
         }
 
-        double Area()
+        double Area() const
         {
             return length*width;
         }
@@ -87,13 +71,12 @@ class Rectangle
         std::string ToString() const
         {
             std::stringstream out;
-
             out << std::fixed << std::setprecision(1);
-            out << "[" << length << "," << width << "]";
+            out << "[" << length << ", " << width << "]\n";
             return out.str();
         }
 
-        friend std::ostream& operator<<(std::ostream& out,const Rectangle& obj)
+        friend std::ostream& operator<<(std::ostream& out, const Rectangle& obj)
         {
             out << obj.ToString();
             return out;
