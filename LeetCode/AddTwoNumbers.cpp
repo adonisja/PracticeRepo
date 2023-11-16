@@ -35,14 +35,16 @@ public:
             digit = sum % 10;
             
             /* Creates a new node that stores the resulting digit 
-            and sets the tail of the node to */
+            and sets the tail of the node to this new node */
             ListNode* newNode = new ListNode(digit); 
             ptr->next = newNode;
             ptr = ptr->next;
 
+            //Traverse the l1/l2 linked lists and obtain the next values for l1 & l2
             l1 = (l1 != NULL) ? l1->next : NULL;
             l2 = (l2 != NULL) ? l2->next : NULL;
         }
+        //Return the final result by skipping the initial head node
         ListNode* finalResult = result->next;
         delete result;
         return finalResult;
