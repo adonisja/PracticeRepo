@@ -1,7 +1,11 @@
 def mathInterpreter():
-    print("Please use spaces!")
+    print("Please use spaces between values!")
     mathProblem = input("Enter an arithmetic problem: \n")
     list = mathProblem.split() # splits the user input into a list of variables
+    while len(list) < 3:
+        print("Invalid Entry!\nPlease use spaces between values!")
+        mathProblem = input("Enter an arithmetic problem: \n")
+        list = mathProblem.split()
     print(list)
     val1 = float(list[0]) #assigns the first member of the list as a float to variable val1
     arithmetic = list[1] #assigns the second member of the list as the arithmetic sign of the problem
