@@ -9,11 +9,13 @@ class TwoSum(object):
         count = 0
         targetFound = False
         for i in nums:
-            diff = target - nums[i]
+            diff = target - i
             if diff in nums:
-                targetDict[count] = nums.index(diff)
-                targetFound = True
+                if nums.index(diff) not in targetDict:
+                    targetDict[count] = nums.index(diff)
+                    targetFound = True
             count += 1
+        print(targetDict)
         print("The indices are: ", targetDict if targetFound else "No 2 values add up to ", target)
 
 
