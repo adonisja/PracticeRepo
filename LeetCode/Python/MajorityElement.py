@@ -17,8 +17,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-    '''Boyer-Moore Algorithm Solution:
-       This solution only works when a guaranteed majority exits (an element occurs more than half of the total number) 
+        '''Boyer-Moore Algorithm Solution:
+        This solution only works when a guaranteed majority exits (an element occurs more than half of the total number) 
         '''
         count, final = 0, 0 # set an intial count and solution to 0
         for i in nums: #iterate over the elements in the list
