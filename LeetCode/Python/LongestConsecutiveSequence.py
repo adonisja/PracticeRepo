@@ -64,7 +64,7 @@ class Stack:
 
 
 def main():
-    nums = [13,7,2,21,73,9,8]
+    nums = [17, 21, 3, 35, 9, 23, 8, 20, 22]
     nums = sort(nums)
     lcs = LongestConsecutiveSequence(nums)
     maxCount = lcs.chainCount(nums)
