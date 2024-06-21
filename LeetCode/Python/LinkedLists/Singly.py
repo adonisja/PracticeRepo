@@ -188,11 +188,53 @@ class SinglyLL:
         else:
             return 0
 
+    def getNodeAtIndex(self, index):
+        print(f'\nRemoving Node at Index: {index}')
+        temp = self.head
+        count = 1
+        if self.head == None:
+            print('This is an empty Linked List')
+        else:
+            while temp and count <= (index - 1):
+                count += 1
+                temp = temp.next
+        if not temp:
+            print('Index not found')
+            return []
+        print(f'count = {count}, index: {index}')
+        if count == (index):
+            print(f'The value at Index {index} is: {temp.data}')
+            return temp.data
+        
 
     def Sort(self):
-        temp = self.head
-        if temp == None:
-            pass
+        print(f'\n**Sorting the Linked List**')
+       
+        temp = start = self.head
+        print(f'\nLinked List at Start: \n')
+        while start:
+            print({start.data}, end='->')
+            start = start.next
+        
+        if not self.head:
+            print("Theres nothing to Sort")
+        else:
+            while temp and temp.next:
+                print(f'\ntemp.data: {temp.data} : temp.next.data: {temp.next.data}')
+                if temp.data > temp.next.data:
+                    hold = temp.next.data
+                    print(f'hold = {hold}')
+                    temp.next.data = temp.data
+                    temp.data = hold
+                    print("\n")
+                    self.Traversal()
+                    temp = temp.next
+                else:
+                    temp = temp.next
+        
+
+
+            
             
 
 def main():
@@ -226,6 +268,9 @@ def main():
     
     sll.removeNodeByIndex(4)
     size = sll.sizeOfLL()
+    sll.Sort()
+    value = sll.getNodeAtIndex(2)
+    
     
 
 if __name__ == "__main__":
