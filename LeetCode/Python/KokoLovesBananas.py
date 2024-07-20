@@ -1,3 +1,4 @@
+import math
 def minEatingSpeed(piles, h): 
     l, r = 1, max(piles)
     ans = r
@@ -5,7 +6,7 @@ def minEatingSpeed(piles, h):
         k = (l + r) // 2
         hours = 0
         for p in piles:
-            hours +=math.ceil()
+            hours += math.ceil()
 
         if hours <= h:
             ans = min(ans,k)
@@ -15,7 +16,8 @@ def minEatingSpeed(piles, h):
         return ans
 
 def main():
+    
     print(minEatingSpeed(piles, k))
 
 if __name__ == '__main__':
-    
+    main()
