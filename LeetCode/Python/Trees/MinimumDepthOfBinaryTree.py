@@ -5,23 +5,22 @@ class TreeNode:
         self.left = left
         self.right = right
         
-class Solution:
-    def minDepth(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
-        self.min_depth = 9999999999999
-        self.dfs(root, 0)
+def minDepth(self, root):
+    if not root:
+        return 0
+    self.min_depth = 9999999999999
+    self.dfs(root, 0)
 
-        return self.min_depth
+    return self.min_depth
     
-    def dfs(self, node, cur_depth):
-        if not node:
-            return
-        if not node.left and not node.right:
-            self.min_depth = min(self.min_depth, cur_depth + 1)
-        
-        self.dfs(node.left, cur_depth +1)
-        self.dfs(node.right, cur_depth +1)
+def dfs(self, node, cur_depth):
+    if not node:
+        return
+    if not node.left and not node.right:
+        self.min_depth = min(self.min_depth, cur_depth + 1)
+    
+    self.dfs(node.left, cur_depth +1)
+    self.dfs(node.right, cur_depth +1)
 
 '''def minDepth(self, root: Optional[TreeNode]) -> int:
         if root is None:
