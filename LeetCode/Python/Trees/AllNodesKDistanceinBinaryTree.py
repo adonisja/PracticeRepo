@@ -92,3 +92,7 @@ def distanceK(root, target, K):
 
 def main():
     pass
+
+
+if __name__ == '__main__':
+    main()
