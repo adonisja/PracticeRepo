@@ -16,22 +16,62 @@ Output: [2,1]
 Example 3:
 Input: head = []
 Output: []'''
-class ListNode(object):
-    def __init__(self, val=0, next=None): # This is a constructor
-        self.val = val
-        self.next = next
 
-class Solution:
-    def reverseList(self, head):
-        prev = None
-        nextt = None
-        current = head
-        if current == None: # If the list is empty, return None
-            return current
-        while(current.next): 
-            nextt = current.next # This stores the next node
-            current.next = prev # This reverses the link
-            prev = current # This moves the prev pointer to the current node
-            current = nextt # This moves the current pointer to the next node
-        current.next = prev # This reverses the link of the last node
-        return current   # This returns the head of the reversed list
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+def createLinkedList(values):
+    if not values:
+        return None
+    head = ListNode(values[0])
+    current = head
+    nodes = [head]
+    for value in values[1:]:
+        new_node = ListNode(value)
+        current.next = new_node
+        current = new_node
+        nodes.append(new_node)
+    return head
+
+def LLtoList(head):
+    result = []
+    current = head
+    while current:
+        result.append(current.val)
+        current = current.next
+    return result
+
+def reverseList(head):
+    if not head:
+        return None
+    prev = None
+    next = None
+    current = head
+    while(current): 
+        next = current.next # This stores the next node
+        current.next = prev # This reverses the link
+        prev = current # This moves the prev pointer to the current node
+        current = next # This moves the current pointer to the next node
+    return prev   # This returns the head of the reversed list
+
+def main():
+    for test in testcases():
+        nums, expected = test["nums"], test["expected"]
+        head = createLinkedList(nums)
+        resultLL = reverseList(head)
+        result = LLtoList(resultLL)
+        assert result == expected, f"Test case failed for Array: {nums}. Expected: {expected}, Result: {result}"
+    print("All testcases passed!")
+
+def testcases():
+    return [
+        {"nums": [1, 2, 3, 4, 5], "expected": [5, 4, 3, 2, 1]},
+        {"nums": [1, 2], "expected": [2, 1]},
+        {"nums": [], "expected": []},
+        {"nums": [1], "expected": [1]},
+    ]
+
+if __name__ == '__main__':
+    main()

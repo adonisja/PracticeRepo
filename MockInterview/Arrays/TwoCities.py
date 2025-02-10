@@ -12,8 +12,10 @@ def findCheapestCost(costs):
     return res'''
     n = len(costs)
     first_city = sum(a for a, b in costs)
+    print(first_city)
     differences = [b - a for a, b in costs]
     differences.sort()
+    print(differences)
     return first_city + sum(differences[:n // 2])
 
 def main():

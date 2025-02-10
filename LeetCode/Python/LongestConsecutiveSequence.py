@@ -9,7 +9,6 @@ class LongestConsecutiveSequence(object):
 
     def chainCount(self, nums):
         count, maxCount = 0, 0
-        print(nums)
         for i, num in enumerate(self.nums):
             if not self.stack:
                 self.stack.append(nums[i])

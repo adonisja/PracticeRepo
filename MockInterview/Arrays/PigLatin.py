@@ -1,6 +1,7 @@
 def Piggify(phrase):
     wordList = phrase.split(' ')
     newPhrase = ''
+    
     for word in wordList:
         word = word[1:] + word[0].lower() + 'ay'
         newPhrase += word + ' '
@@ -8,7 +9,7 @@ def Piggify(phrase):
     return newPhrase.strip()
 
 def main():
-    phrase = input("What did the you say?: ")
+    phrase = 'Hello my new friends' #input("What did the you say?: ")
     if len(phrase) == 0:
         print("I didn't hear you, please speak louder next time")
     else: 

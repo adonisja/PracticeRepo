@@ -1,2 +1,1 @@
-ef fib(n):
-    if 
+sum = 0
